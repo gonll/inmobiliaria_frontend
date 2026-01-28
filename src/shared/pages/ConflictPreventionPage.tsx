@@ -1,6 +1,6 @@
 import React from "react";
-import { StatusBadge } from "./components/StatusBadge";
-import type { ConflictCase } from "../api/types";
+import { StatusBadge } from "../components/StatusBadge";
+import type { ConflictCase } from "../../api/types";
 
 export const ConflictPreventionPage: React.FC = () => {
   // Mock data with AI analysis
