@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useAuth } from "../auth/AuthContext";
+import { useAuth } from "../../auth/AuthContext";
 import { useForm } from "react-hook-form";
-import { FormField } from "./components/FormField";
+import { FormField } from "../components/FormField";
 
 export const SettingsPage: React.FC = () => {
   const { user, logout } = useAuth();
