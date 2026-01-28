@@ -39,17 +39,26 @@ const loginRoute = createRoute({
 const protectedRoute = createRoute({
   getParentRoute: () => rootRoute,
   id: "protected",
+  beforeLoad: async ({ context }) => {
+    const { user, isLoading } = context.auth;
+    // Wait for auth to finish loading
+    let attempts = 0;
+    while (isLoading && attempts < 50) {
+      await new Promise(resolve => setTimeout(resolve, 100));
+      attempts++;
+    }
+    if (!context.auth.user) {
+      throw redirect({ to: "/login" });
+    }
+  },
   component: () => {
-    const { user, isLoading } = useAuth();
+    const { isLoading } = useAuth();
     if (isLoading) {
       return (
         <div className="flex h-full items-center justify-center text-sm text-slate-400">
           Verificando sesión segura...
         </div>
       );
-    }
-    if (!user) {
-      throw redirect({ to: "/login" });
     }
     return <Outlet />;
   },
@@ -127,4 +136,3 @@ declare module "@tanstack/react-router" {
     router: typeof router;
   }
 }
-
