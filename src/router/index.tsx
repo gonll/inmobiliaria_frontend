@@ -20,21 +20,33 @@ import { ConflictPreventionPage } from "../shared/pages/ConflictPreventionPage";
 import { SettingsPage } from "../shared/pages/SettingsPage";
 
 const RootComponent: React.FC = () => {
-  return (
-    <AppLayout>
-      <Outlet />
-    </AppLayout>
-  );
+  return <Outlet />;
 };
 
 const rootRoute = createRootRoute({
   component: RootComponent,
 });
 
+const landingRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/",
+  component: LandingPage,
+});
+
 const loginRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/login",
   component: LoginPage,
+});
+
+const appLayoutRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  id: "app-layout",
+  component: () => (
+    <AppLayout>
+      <Outlet />
+    </AppLayout>
+  ),
 });
 
 const protectedRoute = createRoute({
