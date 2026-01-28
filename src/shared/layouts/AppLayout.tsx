@@ -59,8 +59,8 @@ export const AppLayout: React.FC<{ children: React.ReactNode }> = ({
         <nav className="bottom-nav">
           {NAV_ITEMS.map((item) => {
             const isActive =
-              item.to === "/"
-                ? activePath === "/"
+              item.to === "/dashboard"
+                ? activePath === "/dashboard"
                 : activePath.startsWith(item.to);
             return (
               <Link
