@@ -50,7 +50,7 @@ const appLayoutRoute = createRoute({
 });
 
 const protectedRoute = createRoute({
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => appLayoutRoute,
   id: "protected",
   component: ProtectedRouteComponent,
 });
@@ -67,7 +67,14 @@ function ProtectedRouteComponent() {
 
   if (isLoading) {
     return (
-      <div className="flex h-full items-center justify-center text-sm text-slate-400">
+      <div style={{
+        display: "flex",
+        height: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "var(--font-size-sm)",
+        color: "var(--color-text-tertiary)",
+      }}>
         Verificando sesión segura...
       </div>
     );
@@ -82,7 +89,7 @@ function ProtectedRouteComponent() {
 
 const dashboardRoute = createRoute({
   getParentRoute: () => protectedRoute,
-  path: "/",
+  path: "/dashboard",
   component: DashboardPage,
 });
 
