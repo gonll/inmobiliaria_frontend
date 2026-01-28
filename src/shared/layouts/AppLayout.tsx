@@ -23,7 +23,7 @@ export const AppLayout: React.FC<{ children: React.ReactNode }> = ({
       <header className="sticky top-0 z-20 border-b border-legal-border bg-legal-surfaceElevated/90 px-4 py-3 backdrop-blur">
         <div className="flex items-center justify-between gap-3">
           <Link
-            to="/"
+            to="/dashboard"
             className="transition-colors hover:text-legal-accent"
           >
             <p className="text-xs uppercase tracking-widest text-slate-400">
