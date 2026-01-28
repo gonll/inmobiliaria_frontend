@@ -8,6 +8,7 @@ import {
 import React from "react";
 import { useAuth } from "../auth/AuthContext";
 import { AppLayout } from "../shared/layouts/AppLayout";
+import { LandingPage } from "../shared/pages/LandingPage";
 import { LoginPage } from "../shared/pages/LoginPage";
 import { DashboardPage } from "../shared/pages/DashboardPage";
 import { ContractsListPage } from "../shared/pages/contracts/ContractsListPage";
