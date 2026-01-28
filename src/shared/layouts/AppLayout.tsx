@@ -3,7 +3,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useAuth } from "../../auth/AuthContext";
 
 const NAV_ITEMS = [
-  { to: "/", label: "Resumen", icon: "🏠" },
+  { to: "/dashboard", label: "Resumen", icon: "🏠" },
   { to: "/contracts", label: "Contratos", icon: "📄" },
   { to: "/payments", label: "Pagos", icon: "💶" },
   { to: "/notices", label: "Avisos", icon: "⚖️" },
