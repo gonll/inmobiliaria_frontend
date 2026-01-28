@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { paymentCreateSchema, type PaymentCreateSchema } from "../forms/schemas";
-import { FormField } from "./components/FormField";
-import { StatusBadge } from "./components/StatusBadge";
-import type { Payment } from "../api/types";
+import { paymentCreateSchema, type PaymentCreateSchema } from "../../forms/schemas";
+import { FormField } from "../components/FormField";
+import { StatusBadge } from "../components/StatusBadge";
+import type { Payment } from "../../api/types";
 
 export const PaymentsPage: React.FC = () => {
   const [showNewPayment, setShowNewPayment] = useState(false);
