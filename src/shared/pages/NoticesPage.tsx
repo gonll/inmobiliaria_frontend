@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { noticeCreateSchema, type NoticeCreateSchema } from "../forms/schemas";
-import { FormField } from "./components/FormField";
-import { StatusBadge } from "./components/StatusBadge";
-import type { Notice } from "../api/types";
+import { noticeCreateSchema, type NoticeCreateSchema } from "../../forms/schemas";
+import { FormField } from "../components/FormField";
+import { StatusBadge } from "../components/StatusBadge";
+import type { Notice } from "../../api/types";
 
 export const NoticesPage: React.FC = () => {
   const [showNewNotice, setShowNewNotice] = useState(false);
