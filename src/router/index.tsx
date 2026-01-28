@@ -136,16 +136,19 @@ const settingsRoute = createRoute({
 });
 
 const routeTree = rootRoute.addChildren([
+  landingRoute,
   loginRoute,
-  protectedRoute.addChildren([
-    dashboardRoute,
-    contractsListRoute,
-    contractDetailRoute,
-    contractCreateRoute,
-    paymentsRoute,
-    noticesRoute,
-    conflictPreventionRoute,
-    settingsRoute,
+  appLayoutRoute.addChildren([
+    protectedRoute.addChildren([
+      dashboardRoute,
+      contractsListRoute,
+      contractDetailRoute,
+      contractCreateRoute,
+      paymentsRoute,
+      noticesRoute,
+      conflictPreventionRoute,
+      settingsRoute,
+    ]),
   ]),
 ]);
 
