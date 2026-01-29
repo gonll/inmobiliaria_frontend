@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation } from "@tanstack/react-router";
-import { TopNavbar } from "../components/TopNavbar";
+import { TopNavbar } from "../../components/TopNavbar";
 
 /**
  * Google OAuth Initiation Page
