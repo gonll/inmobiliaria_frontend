@@ -1,6 +1,6 @@
-/* Import SCSS theme with variables and global styles */
-@import './styles/variables.scss';
-@import './styles/theme.scss';
+/* Import CSS theme with variables and global styles */
+@import './styles/variables.css';
+@import './styles/theme.css';
 
 /* Tailwind CSS */
 @tailwind base;
@@ -12,47 +12,59 @@
 /* ============================================================ */
 
 .app-shell {
-  @apply min-h-screen flex flex-col;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background-color: var(--color-bg-primary);
 }
 
 .app-content {
-  @apply flex-1 pb-16;
+  flex: 1;
+  padding-bottom: 4rem;
 }
 
 .bottom-nav {
-  @apply fixed bottom-0 inset-x-0 h-16 flex items-center justify-around text-xs;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: var(--font-size-xs);
   background-color: var(--color-surface);
   border-top: 1px solid var(--color-border-light);
 }
 
 .pill {
-  @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
 }
 
 .pill-success {
-  @apply pill;
   background-color: var(--color-success-100);
   color: var(--color-success);
   border: 1px solid var(--color-success-200);
 }
 
 .pill-warning {
-  @apply pill;
   background-color: var(--color-warning-100);
   color: var(--color-warning);
   border: 1px solid var(--color-warning-200);
 }
 
 .pill-danger {
-  @apply pill;
   background-color: var(--color-error-100);
   color: var(--color-error);
   border: 1px solid var(--color-error-200);
 }
 
 .pill-neutral {
-  @apply pill;
   background-color: var(--color-bg-tertiary);
   color: var(--color-text-secondary);
   border: 1px solid var(--color-border-light);
@@ -117,14 +129,14 @@
   gap: var(--space-4);
   margin: var(--space-8) 0;
   color: var(--color-text-tertiary);
+}
 
-  &::before,
-  &::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background-color: var(--color-border-light);
-  }
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-border-light);
 }
 
 /* ============================================================ */
@@ -186,16 +198,16 @@
   font-weight: var(--font-weight-medium);
   color: var(--color-text-primary);
   transition: all var(--transition-fast);
+}
 
-  &:hover {
-    background-color: var(--color-bg-hover);
-    border-color: var(--color-border-default);
-  }
+.oauth-button:hover {
+  background-color: var(--color-bg-hover);
+  border-color: var(--color-border-default);
+}
 
-  &:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-  }
+.oauth-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 .form-divider {
@@ -211,10 +223,15 @@
   text-decoration: none;
   font-weight: var(--font-weight-medium);
   transition: color var(--transition-fast);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+}
 
-  &:hover {
-    color: var(--color-primary-600);
-  }
+.back-link:hover {
+  color: var(--color-primary-600);
 }
 
 /* ============================================================ */
