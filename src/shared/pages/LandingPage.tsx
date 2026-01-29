@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { TopNavbar } from "../components/TopNavbar";
 
 type AuthFlow = "landing" | "signin" | "register";
 
@@ -7,12 +8,15 @@ export const LandingPage: React.FC = () => {
   const [flow, setFlow] = useState<AuthFlow>("landing");
 
   return (
-    <div>
-      {flow === "landing" && (
-        <LandingContent onSignIn={() => setFlow("signin")} onRegister={() => setFlow("register")} />
-      )}
-      {flow === "signin" && <SignInContent onBack={() => setFlow("landing")} />}
-      {flow === "register" && <RegisterContent onBack={() => setFlow("landing")} />}
+    <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+      <TopNavbar />
+      <div style={{ flex: 1 }}>
+        {flow === "landing" && (
+          <LandingContent onSignIn={() => setFlow("signin")} onRegister={() => setFlow("register")} />
+        )}
+        {flow === "signin" && <SignInContent onBack={() => setFlow("landing")} />}
+        {flow === "register" && <RegisterContent onBack={() => setFlow("landing")} />}
+      </div>
     </div>
   );
 };
