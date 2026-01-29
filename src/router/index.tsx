@@ -10,6 +10,7 @@ import { useAuth } from "../auth/AuthContext";
 import { AppLayout } from "../shared/layouts/AppLayout";
 import { LandingPage } from "../shared/pages/LandingPage";
 import { LoginPage } from "../shared/pages/LoginPage";
+import { OAuthCallbackPage } from "../shared/pages/OAuthCallbackPage";
 import { DashboardPage } from "../shared/pages/DashboardPage";
 import { ContractsListPage } from "../shared/pages/contracts/ContractsListPage";
 import { ContractDetailPage } from "../shared/pages/contracts/ContractDetailPage";
@@ -37,6 +38,12 @@ const loginRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/login",
   component: LoginPage,
+});
+
+const oauthCallbackRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/auth/callback",
+  component: OAuthCallbackPage,
 });
 
 const appLayoutRoute = createRoute({
@@ -138,6 +145,7 @@ const settingsRoute = createRoute({
 const routeTree = rootRoute.addChildren([
   landingRoute,
   loginRoute,
+  oauthCallbackRoute,
   appLayoutRoute.addChildren([
     protectedRoute.addChildren([
       dashboardRoute,
