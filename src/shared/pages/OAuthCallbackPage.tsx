@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { useAuth } from "../../auth/AuthContext";
 import { authApi } from "../../api/auth";
+import { TopNavbar } from "../components/TopNavbar";
 
 export const OAuthCallbackPage: React.FC = () => {
   const navigate = useNavigate();
