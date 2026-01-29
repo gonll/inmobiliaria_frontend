@@ -85,8 +85,8 @@ const SignInContent: React.FC<SignInContentProps> = ({ onBack }) => {
   const [password, setPassword] = useState("");
 
   const handleOAuthSignIn = (provider: "google" | "microsoft") => {
-    const base = import.meta.env.VITE_OAUTH_BASE_URL ?? "";
-    window.location.href = `${base}/auth/${provider}`;
+    // Use frontend OAuth routes
+    window.location.href = `/auth/${provider}`;
   };
 
   return (
@@ -194,8 +194,8 @@ const RegisterContent: React.FC<RegisterContentProps> = ({ onBack }) => {
   });
 
   const handleOAuthSignUp = (provider: "google" | "microsoft") => {
-    const base = import.meta.env.VITE_OAUTH_BASE_URL ?? "";
-    window.location.href = `${base}/auth/${provider}?signup=true`;
+    // Use frontend OAuth routes
+    window.location.href = `/auth/${provider}`;
   };
 
   return (
