@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "@tanstack/react-router";
-import { useAuth } from "../auth/AuthContext";
-import { authApi } from "../api/auth";
+import { useAuth } from "../../auth/AuthContext";
+import { authApi } from "../../api/auth";
 
 export const OAuthCallbackPage: React.FC = () => {
   const [searchParams] = useSearchParams({ select: (search) => search });
