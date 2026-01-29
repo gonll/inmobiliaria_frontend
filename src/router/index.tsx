@@ -11,6 +11,8 @@ import { AppLayout } from "../shared/layouts/AppLayout";
 import { LandingPage } from "../shared/pages/LandingPage";
 import { LoginPage } from "../shared/pages/LoginPage";
 import { OAuthCallbackPage } from "../shared/pages/OAuthCallbackPage";
+import { GoogleOAuthPage } from "../shared/pages/auth/GoogleOAuthPage";
+import { MicrosoftOAuthPage } from "../shared/pages/auth/MicrosoftOAuthPage";
 import { DashboardPage } from "../shared/pages/DashboardPage";
 import { ContractsListPage } from "../shared/pages/contracts/ContractsListPage";
 import { ContractDetailPage } from "../shared/pages/contracts/ContractDetailPage";
@@ -44,6 +46,18 @@ const oauthCallbackRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/auth/callback",
   component: OAuthCallbackPage,
+});
+
+const googleOAuthRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/auth/google",
+  component: GoogleOAuthPage,
+});
+
+const microsoftOAuthRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/auth/microsoft",
+  component: MicrosoftOAuthPage,
 });
 
 const appLayoutRoute = createRoute({
@@ -146,6 +160,8 @@ const routeTree = rootRoute.addChildren([
   landingRoute,
   loginRoute,
   oauthCallbackRoute,
+  googleOAuthRoute,
+  microsoftOAuthRoute,
   appLayoutRoute.addChildren([
     protectedRoute.addChildren([
       dashboardRoute,
