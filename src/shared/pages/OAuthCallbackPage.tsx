@@ -45,40 +45,47 @@ export const OAuthCallbackPage: React.FC = () => {
     return (
       <div style={{
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        flexDirection: "column",
         height: "100vh",
         backgroundColor: "var(--color-bg-primary)",
       }}>
+        <TopNavbar />
         <div style={{
-          textAlign: "center",
-          padding: "var(--space-8)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flex: 1,
         }}>
           <div style={{
-            fontSize: "3rem",
-            marginBottom: "var(--space-4)",
-            animation: "spin 1s linear infinite",
+            textAlign: "center",
+            padding: "var(--space-8)",
           }}>
-            ⏳
+            <div style={{
+              fontSize: "3rem",
+              marginBottom: "var(--space-4)",
+              animation: "spin 1s linear infinite",
+            }}>
+              ⏳
+            </div>
+            <h2 style={{
+              color: "var(--color-text-primary)",
+              marginBottom: "var(--space-2)",
+            }}>
+              Procesando tu acceso
+            </h2>
+            <p style={{
+              color: "var(--color-text-secondary)",
+            }}>
+              Por favor espera mientras completamos tu autenticación...
+            </p>
           </div>
-          <h2 style={{
-            color: "var(--color-text-primary)",
-            marginBottom: "var(--space-2)",
-          }}>
-            Procesando tu acceso
-          </h2>
-          <p style={{
-            color: "var(--color-text-secondary)",
-          }}>
-            Por favor espera mientras completamos tu autenticación...
-          </p>
+          <style>{`
+            @keyframes spin {
+              from { transform: rotate(0deg); }
+              to { transform: rotate(360deg); }
+            }
+          `}</style>
         </div>
-        <style>{`
-          @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-          }
-        `}</style>
       </div>
     );
   }
@@ -87,43 +94,50 @@ export const OAuthCallbackPage: React.FC = () => {
     return (
       <div style={{
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        flexDirection: "column",
         height: "100vh",
         backgroundColor: "var(--color-bg-primary)",
       }}>
+        <TopNavbar />
         <div style={{
-          backgroundColor: "var(--color-bg-secondary)",
-          border: "1px solid var(--color-error)",
-          borderRadius: "var(--radius-lg)",
-          padding: "var(--space-8)",
-          maxWidth: "500px",
-          textAlign: "center",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flex: 1,
         }}>
           <div style={{
-            fontSize: "3rem",
-            marginBottom: "var(--space-4)",
+            backgroundColor: "var(--color-bg-secondary)",
+            border: "1px solid var(--color-error)",
+            borderRadius: "var(--radius-lg)",
+            padding: "var(--space-8)",
+            maxWidth: "500px",
+            textAlign: "center",
           }}>
-            ⚠️
+            <div style={{
+              fontSize: "3rem",
+              marginBottom: "var(--space-4)",
+            }}>
+              ⚠️
+            </div>
+            <h2 style={{
+              color: "var(--color-error)",
+              marginBottom: "var(--space-4)",
+            }}>
+              Error de Autenticación
+            </h2>
+            <p style={{
+              color: "var(--color-text-secondary)",
+              marginBottom: "var(--space-6)",
+            }}>
+              {error}
+            </p>
+            <button
+              onClick={() => navigate({ to: "/login" })}
+              className="btn btn-primary"
+            >
+              Volver al Login
+            </button>
           </div>
-          <h2 style={{
-            color: "var(--color-error)",
-            marginBottom: "var(--space-4)",
-          }}>
-            Error de Autenticación
-          </h2>
-          <p style={{
-            color: "var(--color-text-secondary)",
-            marginBottom: "var(--space-6)",
-          }}>
-            {error}
-          </p>
-          <button
-            onClick={() => navigate({ to: "/login" })}
-            className="btn btn-primary"
-          >
-            Volver al Login
-          </button>
         </div>
       </div>
     );
