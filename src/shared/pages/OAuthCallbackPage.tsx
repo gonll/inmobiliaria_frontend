@@ -23,6 +23,15 @@ export const OAuthCallbackPage: React.FC = () => {
           throw new Error("No authorization code received from OAuth provider");
         }
 
+        // Validate state parameter for CSRF protection
+        const storedState = sessionStorage.getItem("oauth_state");
+        if (state !== storedState) {
+          throw new Error("State parameter mismatch - possible CSRF attack");
+        }
+
+        // Clear the stored state
+        sessionStorage.removeItem("oauth_state");
+
         // Exchange code for tokens
         const { tokens, user } = await authApi.oauthCallback(provider, code, state || undefined);
         
