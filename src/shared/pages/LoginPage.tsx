@@ -4,6 +4,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAuth } from "../../auth/AuthContext";
 import { FormField } from "../components/FormField";
+import { TopNavbar } from "../components/TopNavbar";
 
 const loginSchema = z.object({
   email: z.string().email("Introduce un correo válido."),
@@ -57,13 +58,6 @@ export const LoginPage: React.FC = () => {
           className="w-full rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-slate-100 ring-1 ring-slate-700 hover:bg-slate-800"
         >
           Continuar con Microsoft 365
-        </button>
-        <button
-          type="button"
-          onClick={() => loginWithOAuth("github")}
-          className="w-full rounded-lg bg-slate-900 px-4 py-2.5 text-sm font-medium text-slate-100 ring-1 ring-slate-700 hover:bg-slate-800"
-        >
-          Continuar con GitHub
         </button>
       </div>
 
@@ -122,4 +116,3 @@ export const LoginPage: React.FC = () => {
     </div>
   );
 };
-
