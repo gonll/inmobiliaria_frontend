@@ -108,13 +108,6 @@ const SignInContent: React.FC<SignInContentProps> = ({ onBack }) => {
             <span>☁️</span>
             Continuar con Microsoft 365
           </button>
-          <button
-            onClick={() => handleOAuthSignIn("github")}
-            className="oauth-button"
-          >
-            <span>🐙</span>
-            Continuar con GitHub
-          </button>
         </div>
 
         <div className="divider">o continúa con correo</div>
@@ -223,13 +216,6 @@ const RegisterContent: React.FC<RegisterContentProps> = ({ onBack }) => {
           >
             <span>☁️</span>
             Registrarse con Microsoft 365
-          </button>
-          <button
-            onClick={() => handleOAuthSignUp("github")}
-            className="oauth-button"
-          >
-            <span>🐙</span>
-            Registrarse con GitHub
           </button>
         </div>
 
