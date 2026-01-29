@@ -38,7 +38,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   }, []);
 
   const loginWithOAuth = useCallback(
-    (provider: "google" | "microsoft" | "github") => {
+    (provider: "google" | "microsoft") => {
       // In a real app this would redirect to the OAuth authorization URL.
       const base = import.meta.env.VITE_OAUTH_BASE_URL ?? "";
       window.location.href = `${base}/auth/${provider}`;
@@ -103,4 +103,3 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
-
