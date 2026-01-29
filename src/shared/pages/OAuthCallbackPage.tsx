@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useSearchParams, useNavigate } from "@tanstack/react-router";
+import { useNavigate } from "@tanstack/react-router";
 import { useAuth } from "../../auth/AuthContext";
 import { authApi } from "../../api/auth";
 
 export const OAuthCallbackPage: React.FC = () => {
-  const [searchParams] = useSearchParams({ select: (search) => search });
   const navigate = useNavigate();
   const { setTokensAndUser } = useAuth();
   const [error, setError] = useState<string | null>(null);
@@ -13,7 +12,8 @@ export const OAuthCallbackPage: React.FC = () => {
   useEffect(() => {
     const handleCallback = async () => {
       try {
-        // Get the authorization code from URL
+        // Get the authorization code from URL search params
+        const searchParams = new URLSearchParams(window.location.search);
         const code = searchParams.get("code");
         const state = searchParams.get("state");
         const provider = searchParams.get("provider") || "google";
@@ -38,7 +38,7 @@ export const OAuthCallbackPage: React.FC = () => {
     };
 
     handleCallback();
-  }, [searchParams, navigate, setTokensAndUser]);
+  }, [navigate, setTokensAndUser]);
 
   if (isProcessing) {
     return (
