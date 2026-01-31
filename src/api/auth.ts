@@ -60,5 +60,22 @@ export const authApi = {
     await http.post("/auth/logout");
     setAccessToken(null);
   },
-};
 
+  async oauthCallback(provider: string, code: string, state?: string): Promise<{ tokens: AuthTokens; user: AuthUser }> {
+    const params: Record<string, string> = { code };
+    if (state) params.state = state;
+
+    const res = await http.post(`/auth/${provider}/callback`, params);
+    const parsed = loginResponseSchema.parse(res.data);
+    const tokens: AuthTokens = { accessToken: parsed.accessToken };
+    const user: AuthUser = {
+      id: parsed.user.id,
+      email: parsed.user.email,
+      fullName: parsed.user.fullName,
+      roles: parsed.user.roles as AuthUser["roles"],
+      defaultRole: parsed.user.defaultRole as AuthUser["defaultRole"],
+    };
+    setAccessToken(tokens.accessToken);
+    return { tokens, user };
+  },
+};

@@ -2,7 +2,7 @@ import React, { createContext, useContext } from "react";
 import type { AuthState, AuthTokens, AuthUser, UserRole } from "./types";
 
 export interface AuthContextValue extends AuthState {
-  loginWithOAuth: (provider: "google" | "microsoft" | "github") => void;
+  loginWithOAuth: (provider: "google" | "microsoft") => void;
   loginWithEmailPassword: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
   hasRole: (role: UserRole | UserRole[]) => boolean;
@@ -20,4 +20,3 @@ export const useAuth = (): AuthContextValue => {
   }
   return ctx;
 };
-

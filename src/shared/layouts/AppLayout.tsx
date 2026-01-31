@@ -3,7 +3,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useAuth } from "../../auth/AuthContext";
 
 const NAV_ITEMS = [
-  { to: "/", label: "Resumen", icon: "🏠" },
+  { to: "/dashboard", label: "Resumen", icon: "🏠" },
   { to: "/contracts", label: "Contratos", icon: "📄" },
   { to: "/payments", label: "Pagos", icon: "💶" },
   { to: "/notices", label: "Avisos", icon: "⚖️" },
@@ -22,14 +22,17 @@ export const AppLayout: React.FC<{ children: React.ReactNode }> = ({
     <div className="app-shell">
       <header className="sticky top-0 z-20 border-b border-legal-border bg-legal-surfaceElevated/90 px-4 py-3 backdrop-blur">
         <div className="flex items-center justify-between gap-3">
-          <div>
+          <Link
+            to="/dashboard"
+            className="transition-colors hover:text-legal-accent"
+          >
             <p className="text-xs uppercase tracking-widest text-slate-400">
               Inmobiliaria digital
             </p>
             <p className="text-sm font-semibold text-slate-50">
               Panel jurídico
             </p>
-          </div>
+          </Link>
           {user && (
             <div className="flex items-center gap-3">
               <div className="text-right">
@@ -56,8 +59,8 @@ export const AppLayout: React.FC<{ children: React.ReactNode }> = ({
         <nav className="bottom-nav">
           {NAV_ITEMS.map((item) => {
             const isActive =
-              item.to === "/"
-                ? activePath === "/"
+              item.to === "/dashboard"
+                ? activePath === "/dashboard"
                 : activePath.startsWith(item.to);
             return (
               <Link
@@ -79,4 +82,3 @@ export const AppLayout: React.FC<{ children: React.ReactNode }> = ({
     </div>
   );
 };
-
