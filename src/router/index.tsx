@@ -71,6 +71,12 @@ const appLayoutRoute = createRoute({
   ),
 });
 
+const buildingsRoute = createRoute({
+  getParentRoute: () => appLayoutRoute,
+  path: "/buildings",
+  component: BuildingsPage,
+});
+
 const protectedRoute = createRoute({
   getParentRoute: () => appLayoutRoute,
   id: "protected",
