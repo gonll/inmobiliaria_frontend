@@ -172,6 +172,7 @@ const routeTree = rootRoute.addChildren([
   appLayoutRoute.addChildren([
     protectedRoute.addChildren([
       dashboardRoute,
+      buildingsRoute,
       contractsListRoute,
       contractDetailRoute,
       contractCreateRoute,
