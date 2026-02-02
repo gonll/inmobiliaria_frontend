@@ -170,9 +170,9 @@ const routeTree = rootRoute.addChildren([
   googleOAuthRoute,
   microsoftOAuthRoute,
   appLayoutRoute.addChildren([
+    buildingsRoute,
     protectedRoute.addChildren([
       dashboardRoute,
-      buildingsRoute,
       contractsListRoute,
       contractDetailRoute,
       contractCreateRoute,
