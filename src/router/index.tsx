@@ -115,6 +115,12 @@ const dashboardRoute = createRoute({
   component: DashboardPage,
 });
 
+const buildingsRoute = createRoute({
+  getParentRoute: () => protectedRoute,
+  path: "/buildings",
+  component: BuildingsPage,
+});
+
 const contractsListRoute = createRoute({
   getParentRoute: () => protectedRoute,
   path: "/contracts",
