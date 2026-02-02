@@ -11,6 +11,9 @@ export const buildingCreateSchema = z.object({
   bedrooms: z.coerce.number().min(0).optional(),
   bathrooms: z.coerce.number().min(0).optional(),
   squareMeters: z.coerce.number().min(1, "Metros cuadrados inválidos").optional(),
+  matricula: z.string().optional(),
+  padronInmobiliario: z.string().optional(),
+  padronMunicipal: z.string().optional(),
 });
 
 export type BuildingCreateSchema = z.infer<typeof buildingCreateSchema>;
