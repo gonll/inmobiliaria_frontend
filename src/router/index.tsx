@@ -14,6 +14,7 @@ import { OAuthCallbackPage } from "../shared/pages/OAuthCallbackPage";
 import { GoogleOAuthPage } from "../shared/pages/auth/GoogleOAuthPage";
 import { MicrosoftOAuthPage } from "../shared/pages/auth/MicrosoftOAuthPage";
 import { DashboardPage } from "../shared/pages/DashboardPage";
+import { BuildingsPage } from "../shared/pages/BuildingsPage";
 import { ContractsListPage } from "../shared/pages/contracts/ContractsListPage";
 import { ContractDetailPage } from "../shared/pages/contracts/ContractDetailPage";
 import { ContractCreatePage } from "../shared/pages/contracts/ContractCreatePage";
